@@ -127,7 +127,7 @@
         style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('image/greet.jpg');">
         <div class="container mx-auto px-6 text-left slide-up z-10 relative">
             <h1
-                class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-accent leading-tight tracking-tight max-w-4xl">
+                class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 text-accent leading-tight tracking-tight max-w-4xl">
                 Ghana Education Service Recruitment Portal
             </h1>
             <p class="text-base md:text-lg font-light mb-6 text-white/90 max-w-3xl leading-relaxed opacity-90">
@@ -1465,8 +1465,10 @@
             });
         });
 
-        // Show "Graduate" visible on load:
-        switchSection('graduate');
+        // Show "Graduate" visible on load (without jumping/scrolling if possible)
+        // By default we want the hero to be visible, so we only switch data but not scroll
+        sections.forEach(s => s.classList.add('hidden'));
+        document.getElementById('graduate').classList.remove('hidden');
     </script>
     <script src="script.js"></script>
 </body>
